@@ -3,7 +3,6 @@ package pl.lukas.fetchTypes;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 import pl.lukas.fetchTypes.entity.*;
 
 public class FetchTypeApp {
@@ -25,6 +24,15 @@ public class FetchTypeApp {
         int id = 34;
 
         session.beginTransaction();
+        System.out.println("Pobieranie obiektu company");
+        Company company = session.get(Company.class, id);
+        System.out.println("Obiekt company został pobrany");
+        System.out.println(company);
+
+        System.out.println("Nieruchomości: ");
+        for (Property property : company.getProperties()){
+            System.out.println(property);
+        }
 
 
         session.getTransaction().commit();
