@@ -22,6 +22,7 @@ public class FetchTypeApp {
         // pobieranie sesji
         Session session = factory.getCurrentSession();
 
+        int id = 34;
 
         session.beginTransaction();
 
